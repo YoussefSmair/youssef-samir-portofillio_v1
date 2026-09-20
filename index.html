@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Youssef Samir Kamal Salama — Web Design & Data Analysis Trainee. BIS graduate, Power BI developer, HTML/CSS contributor. Cairo, Egypt." />
+  <title>Youssef Samir | Portfolio V9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:ital,wght@0,400..900;1,400..900&family=Chakra+Petch:ital,wght@0,600;0,700;1,600;1,700&family=Rajdhani:ital,wght@0,300..700;1,300..700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ BACKGROUND LAYERS ═══ -->
+  <!-- 1. Hologram Container: Fixed in background layer, enlarged HUD rings with profile photo at core -->
+  <div class="hologram-container" aria-hidden="true">
+    <canvas id="hologram-canvas"></canvas>
+  </div>
+
+  <!-- 2. Cybernetic Particles Overlay (Cyan & Orange rising particles ascending high up the screen) -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">YS</span>
+        <span class="logo-bracket">]</span>
+        <span class="nav-status">● ONLINE</span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home"      id="nav-home"      class="nav-link active">HOME</a></li>
+        <li><a href="#about"     id="nav-about"     class="nav-link">ABOUT</a></li>
+        <li><a href="#skills"    id="nav-skills"    class="nav-link">SKILLS</a></li>
+        <li><a href="#projects"  id="nav-projects"  class="nav-link">PROJECTS</a></li>
+        <li><a href="#education" id="nav-education" class="nav-link">EDUCATION</a></li>
+        <li><a href="#contact"   id="nav-contact"   class="nav-link">CONTACT</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO SECTION (V9 LAYOUT) ═══ -->
+  <section id="home" class="hero" aria-label="Hero section">
+    <!-- HUD Corner Brackets -->
+    <div class="hud-corner hud-tl" aria-hidden="true"></div>
+    <div class="hud-corner hud-tr" aria-hidden="true"></div>
+    <div class="hud-corner hud-bl" aria-hidden="true"></div>
+    <div class="hud-corner hud-br" aria-hidden="true"></div>
+
+    <!-- ── 1. TOP-LEFT CONTENT (TYPED TEXT + BIO + BUTTONS) ── -->
+    <div class="top-left-content">
+      <!-- Typed Text Animation (No // prefix) -->
+      <div class="hero-typed-wrapper">
+        <span id="typed-title" class="typed-text"></span><span class="typed-cursor">█</span>
+      </div>
+
+      <p class="hero-bio">
+        Business Information Systems (BIS) Graduate &middot; Cairo, Egypt &middot; Web Design & Data Analysis Trainee
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" id="btn-view-work" class="btn btn-primary">
+          <span class="btn-icon">◈</span> VIEW WORK
+        </a>
+        <a href="#contact" id="btn-contact" class="btn btn-secondary">
+          <span class="btn-icon">◉</span> CONTACT ME
+        </a>
+      </div>
+    </div>
+
+    <!-- ── 2. TOP-RIGHT NAME HEADER (ITALIC HUD STYLING) ── -->
+    <div class="hero-name-corner top-right-pos">
+      <div class="name-hud-tag">ID: YS-2026-BIS &middot; SYS ACTIVE</div>
+      <h1 class="hero-name-corner-title">
+        <span class="name-first glitch" data-text="YOUSSEF">YOUSSEF</span>
+        <span class="name-last">SAMIR</span>
+      </h1>
+      <div class="name-hud-bar"></div>
+    </div>
+
+    <!-- ── 3. BOTTOM-RIGHT HUD STATUS PANEL ── -->
+    <div class="hero-hud-side" aria-label="Status information">
+      <div class="hud-side-row">
+        <span class="hud-side-label">STATUS</span>
+        <span class="hud-side-value status-open">◉ OPEN TO WORK</span>
+      </div>
+      <div class="hud-side-row">
+        <span class="hud-side-label">LOCATION</span>
+        <span class="hud-side-value">◈ CAIRO, EG</span>
+      </div>
+      <div class="hud-side-row">
+        <span class="hud-side-label">REPOS</span>
+        <span class="hud-side-value" id="stat-repos">36</span>
+      </div>
+      <div class="hud-side-row">
+        <span class="hud-side-label">GPA</span>
+        <span class="hud-side-value text-gold">3.33</span>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT (EXACTLY V3) ═══ -->
+  <section id="about" class="section" aria-label="About section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">ABOUT ME</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Left card -->
+        <div class="about-left reveal">
+          <div class="elec-wrap">
+            <div class="elec-card about-card-inner">
+
+              <div class="about-photo-wrap">
+                <img src="profile.jpg" alt="Youssef Samir Kamal Salama" class="about-photo" />
+                <div class="about-photo-ring" aria-hidden="true"></div>
+              </div>
+
+              <div class="about-info">
+                <div class="info-row">
+                  <span class="info-label">NAME</span>
+                  <span class="info-value">Youssef Samir Kamal Salama</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">ROLE</span>
+                  <span class="info-value">Web Design &amp; Data Analysis Trainee</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">BASE</span>
+                  <span class="info-value">Cairo, Egypt</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">PHONE</span>
+                  <span class="info-value">
+                    <a href="tel:+201276733994" class="text-accent" id="phone-link">01276733994</a>
+                  </span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">EMAIL</span>
+                  <span class="info-value">
+                    <a href="mailto:ys506372@gmail.com" class="text-accent" id="email-link">ys506372@gmail.com</a>
+                  </span>
+                </div>
+              </div>
+
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/youssef-el-nagar-5a85a0345/"
+                   id="linkedin-link" target="_blank" rel="noopener noreferrer"
+                   class="social-btn" aria-label="LinkedIn profile">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 1 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  Youssef El-Nagar
+                </a>
+                <a href="https://github.com/YoussefSmair"
+                   id="github-link" target="_blank" rel="noopener noreferrer"
+                   class="social-btn" aria-label="GitHub profile">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  YoussefSmair
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Right bio + highlights -->
+        <div class="about-right">
+          <div class="reveal">
+            <p class="about-text">
+              Business Information Systems (BIS) graduate from Future Academy. Independently developed skills in web design and data analysis — combining creative front-end work with an analytical mindset.
+            </p>
+            <p class="about-text">
+              Contributed HTML &amp; CSS to the <em class="text-accent">Interview Coach</em> project, which earned <strong class="text-gold">2nd place</strong> in an institute-level competition. Separately, designed and built a 5-page interactive Power BI dashboard — applying data cleaning, data modeling, and advanced visualizations.
+            </p>
+            <p class="about-text">
+              Seeking a trainee role where I can apply and grow these skills in a professional environment.
+            </p>
+          </div>
+
+          <div class="about-highlights reveal">
+            <div class="highlight-card">
+              <div class="highlight-icon">⬡</div>
+              <div class="highlight-data">
+                <span class="highlight-num" id="github-repos-count">36</span>
+                <span class="highlight-label">GitHub Repos</span>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon">🥈</div>
+              <div class="highlight-data">
+                <span class="highlight-num">2<span class="highlight-sup">nd</span></span>
+                <span class="highlight-label">Place — Competition</span>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon">◉</div>
+              <div class="highlight-data">
+                <span class="highlight-num">3.33</span>
+                <span class="highlight-label">GPA — Future Academy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS (EXACTLY V3) ═══ -->
+  <section id="skills" class="section section-dark" aria-label="Skills section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">TECH STACK</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="elec-wrap reveal">
+          <div class="elec-card skill-category">
+            <div class="category-header">
+              <span class="category-icon">◈</span>
+              <h3 class="category-title">WEB DESIGN</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">HTML5</span><span class="skill-pct">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:80%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">CSS3</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:75%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="elec-wrap reveal">
+          <div class="elec-card skill-category">
+            <div class="category-header">
+              <span class="category-icon">⬡</span>
+              <h3 class="category-title">DATA ANALYTICS</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Power BI</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:75%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Data Modeling &amp; Relationships</span><span class="skill-pct">68%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:68%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">70%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:70%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Data Visualization</span><span class="skill-pct">72%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:72%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="elec-wrap reveal">
+          <div class="elec-card skill-category">
+            <div class="category-header">
+              <span class="category-icon">◉</span>
+              <h3 class="category-title">TOOLS &amp; OTHER</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Git / GitHub</span><span class="skill-pct">68%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:68%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span class="skill-name">Python Basics</span><span class="skill-pct">55%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--fill:55%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tech-tags reveal">
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">Power BI</span>
+        <span class="tech-tag">Power Query</span>
+        <span class="tech-tag">Data Modeling</span>
+        <span class="tech-tag">Data Visualization</span>
+        <span class="tech-tag">Interactive Dashboards</span>
+        <span class="tech-tag">Microsoft Excel</span>
+        <span class="tech-tag">Git / GitHub</span>
+        <span class="tech-tag">Python Basics</span>
+        <span class="tech-tag">OOP Basics</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS (EXACTLY V3) ═══ -->
+  <section id="projects" class="section" aria-label="Projects section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">PROJECTS</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="elec-wrap reveal">
+          <div class="elec-card project-card">
+            <div class="project-header">
+              <span class="project-id">PROJECT_01</span>
+              <a href="https://github.com/YoussefSmair/Interview-Coach_v12"
+                 id="proj-link-1" target="_blank" rel="noopener noreferrer"
+                 class="project-link" aria-label="View Interview Coach on GitHub">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <div class="project-award-badge">🥈 2nd Place — Institute Competition</div>
+            <h3 class="project-name">Interview Coach</h3>
+            <p class="project-role">Front-End Contributor — HTML &amp; CSS</p>
+            <p class="project-desc">
+              Worked with a 4-member team to design and build the UI using HTML &amp; CSS. Built responsive desktop pages and helped develop an interactive test system with instant scoring and feedback.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">Responsive Design</span>
+              <span class="project-tag">Team Project</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="elec-wrap reveal">
+          <div class="elec-card project-card">
+            <div class="project-header">
+              <span class="project-id">PROJECT_02</span>
+              <a href="https://github.com/YoussefSmair/Sales-Visualization-Dashboard-Power-BI-Practice-Enhanced-Version"
+                 id="proj-link-2" target="_blank" rel="noopener noreferrer"
+                 class="project-link" aria-label="View Sales Dashboard on GitHub">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <h3 class="project-name">Sales Analytics Dashboard</h3>
+            <p class="project-role">Data Analyst — Power BI</p>
+            <p class="project-desc">
+              Built a 5-page interactive Power BI dashboard covering KPI overview, product performance, customer analysis, and time trends. Cleaned and modeled raw data using Power Query. Added filters for year, quarter, country, product category, sales channel, and customer loyalty tier.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Power Query</span>
+              <span class="project-tag">Data Modeling</span>
+              <span class="project-tag">Data Visualization</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="view-all-wrapper reveal">
+        <a href="https://github.com/YoussefSmair" id="view-all-repos"
+           target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <span class="btn-icon">⬡</span> VIEW ALL ON GITHUB
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION & AWARDS (EXACTLY V3) ═══ -->
+  <section id="education" class="section section-dark" aria-label="Education and Awards section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">EDUCATION &amp; AWARDS</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="edu-grid">
+
+        <div class="edu-col">
+          <h3 class="edu-col-title"><span class="col-icon">◈</span> EDUCATION</h3>
+
+          <div class="elec-wrap edu-item reveal">
+            <div class="elec-card">
+              <div class="edu-meta">
+                <span class="edu-badge">Jul 2026</span>
+                <span class="edu-type-tag">Bachelor's Degree</span>
+              </div>
+              <h4 class="edu-title">Business Information Systems (BIS)</h4>
+              <p class="edu-institution">Future Academy &mdash; Cairo, Egypt</p>
+              <p class="edu-detail">GPA: <span class="text-accent">3.33</span></p>
+            </div>
+          </div>
+
+          <div class="elec-wrap edu-item reveal">
+            <div class="elec-card">
+              <div class="edu-meta">
+                <span class="edu-badge">Diploma</span>
+                <span class="edu-type-tag">Course</span>
+              </div>
+              <h4 class="edu-title">Web Design Diploma</h4>
+              <p class="edu-institution">Russian Cultural Center</p>
+              <p class="edu-detail">HTML, CSS, Adobe Photoshop (Fundamentals)</p>
+            </div>
+          </div>
+
+          <div class="elec-wrap edu-item reveal">
+            <div class="elec-card">
+              <div class="edu-meta">
+                <span class="edu-type-tag">Languages</span>
+              </div>
+              <div class="lang-list">
+                <div class="lang-item">
+                  <span class="lang-name">Arabic</span>
+                  <span class="lang-level native">Native</span>
+                </div>
+                <div class="lang-item">
+                  <span class="lang-name">English</span>
+                  <span class="lang-level">Intermediate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-col">
+          <h3 class="edu-col-title"><span class="col-icon">⬡</span> AWARDS &amp; HONORS</h3>
+
+          <div class="elec-wrap edu-item reveal">
+            <div class="elec-card award-card">
+              <div class="award-emoji">🥈</div>
+              <div class="award-body">
+                <h4 class="edu-title">2nd Place &mdash; Institute-Level Competition</h4>
+                <p class="edu-institution">Future Academy</p>
+                <p class="edu-detail">
+                  Awarded for the <span class="text-accent">Interview Coach</span> project —
+                  an interactive web-based interview preparation tool built with HTML &amp; CSS
+                  in a 4-member team.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="elec-wrap edu-item reveal">
+            <div class="elec-card">
+              <div class="edu-meta">
+                <span class="edu-type-tag">Summary</span>
+              </div>
+              <p class="edu-detail" style="line-height:1.8; margin-top:0.5rem;">
+                Business Information Systems graduate. Developed skills independently in web design
+                and data analysis. Seeking a trainee role to apply and further develop these skills
+                in a real professional setting.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT (EXACTLY V3) ═══ -->
+  <section id="contact" class="section" aria-label="Contact section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 05</span>
+        <h2 class="section-title">CONTACT</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-left reveal">
+          <p class="contact-intro">
+            Ready to build something extraordinary?<br/>
+            Let's connect and make it happen.
+          </p>
+
+          <div class="contact-methods">
+            <a href="mailto:ys506372@gmail.com" id="contact-email-link" class="contact-method">
+              <div class="method-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="method-info">
+                <span class="method-label">EMAIL</span>
+                <span class="method-value">ys506372@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+201276733994" id="contact-phone-link" class="contact-method">
+              <div class="method-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div class="method-info">
+                <span class="method-label">PHONE</span>
+                <span class="method-value">01276733994</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/youssef-el-nagar-5a85a0345/"
+               id="contact-linkedin-link" target="_blank" rel="noopener noreferrer"
+               class="contact-method">
+              <div class="method-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 1 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div class="method-info">
+                <span class="method-label">LINKEDIN</span>
+                <span class="method-value">Youssef El-Nagar</span>
+              </div>
+            </a>
+            <a href="https://github.com/YoussefSmair"
+               id="contact-github-link" target="_blank" rel="noopener noreferrer"
+               class="contact-method">
+              <div class="method-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </div>
+              <div class="method-info">
+                <span class="method-label">GITHUB</span>
+                <span class="method-value">YoussefSmair</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal">
+          <div class="elec-wrap">
+            <form id="contact-form" class="elec-card contact-form" novalidate>
+              <div class="form-group">
+                <label for="form-name" class="form-label">NAME</label>
+                <input type="text" id="form-name" name="name" class="form-input"
+                       placeholder="Your name" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="form-email" class="form-label">EMAIL</label>
+                <input type="email" id="form-email" name="email" class="form-input"
+                       placeholder="your@email.com" required autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="form-message" class="form-label">MESSAGE</label>
+                <textarea id="form-message" name="message" class="form-input form-textarea"
+                          placeholder="Your message…" rows="5" required></textarea>
+              </div>
+              <button type="submit" id="form-submit" class="btn btn-primary btn-full">
+                <span class="btn-icon">◈</span> TRANSMIT MESSAGE
+              </button>
+              <div id="form-status" class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER (EXACTLY V3) ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">[YS]</span>
+        <span class="footer-copy">© 2026 Youssef Samir Kamal Salama. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-status"><span class="status-dot"></span> SYSTEM ONLINE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
